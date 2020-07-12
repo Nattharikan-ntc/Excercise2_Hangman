@@ -1,0 +1,13 @@
+<aura:component >
+    
+    <aura:attribute name="countWrongAnswer" type="Integer"/>
+    <aura:attribute name="indexPicture" type="String[]" default="['State0','State1','State2','State3','State4','State5','State6','State7']"/>
+    <aura:attribute name="namePicture" type="String"/>
+
+
+    <!-- <aura:iteration items="{!v.indexPicture}" var="index"> -->
+        <img src="{!$Resource.hangmanPictures+'/State'+ v.countWrongAnswer +'.JPG'}" width="600"/>
+    <!-- </aura:iteration> -->
+
+
+</aura:component>

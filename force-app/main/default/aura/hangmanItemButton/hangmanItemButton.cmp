@@ -1,0 +1,25 @@
+<aura:component>
+
+    <!-- <aura:registerEvent name="click" type="c:clickedChar"/> -->
+    <aura:attribute name="itemButton" type="String[]"/>
+    <!-- <aura:attribute name="disabledButton" type="Boolean"/> -->
+
+    <!-- <aura:iteration items="{!v.itemButton}" var="char">
+        <c:hangmanButton button = "{!char}"/>
+    </aura:iteration> -->
+
+    {!v.disabledButton}
+    <div class="c-container">
+        <lightning:layout>
+            <lightning:layoutItem flexibility="auto" padding="around-small">
+                <div class="custom-box">
+                    <aura:iteration items="{!v.itemButton}" var="char">
+                        <!-- <c:hangmanButton button = "{!char}" disabledButton = "{!v.disabledButton}"/> -->
+                        <c:hangmanButton button = "{!char}" />
+                    </aura:iteration>
+                </div>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+
+</aura:component>

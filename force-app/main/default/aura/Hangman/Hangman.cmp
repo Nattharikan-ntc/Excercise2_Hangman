@@ -1,0 +1,48 @@
+<aura:component controller = "randomWordsList" implements="force:appHostable">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>     
+    <aura:handler name="selectChar" event="c:clickedChar" action="{!c.handleUpdateAnswer}"/> 
+
+    <aura:attribute name="button" type="String[]" default="['A','B','C','D','E','F',
+                                                          'G','H','I','J','K','L',
+                                                          'M','N','O','P','Q','R',
+                                                          'S','T','U','V','W','X',
+                                                          'Y','Z']"/>
+
+    <aura:attribute name="wordRandom" type="String"/>
+    <aura:attribute name="wordHint" type="String"/>
+    <!-- <aura:attribute name="countWrongCurrent" type="Integer" default="0"/> -->
+    <aura:attribute name="countWrongAnswer" type="Integer" default = "0"/>
+    <aura:attribute name="disabledButton" type="Boolean" default = "false"/>
+
+    <div class="header">
+        <h1>Hangman Games</h1>
+    </div>
+       
+    <div class="c-container">
+        <lightning:layout>
+            <aura:iteration items="{!v.wordHint}" var="char">
+                <lightning:layoutItem flexibility="auto" padding="around-small">
+                    <div class="custom-box">{!char}</div>
+                </lightning:layoutItem>
+            </aura:iteration>
+        </lightning:layout>
+    </div>
+    
+    <div class="c-Image">
+        <!-- <aura:if isTrue ="{!v.countWrongAnswer}"> -->
+            <c:hangmanForm countWrongAnswer = "{!v.countWrongAnswer}" />
+        <!-- </aura:if> -->
+    </div>
+
+    <div class="c-button">
+        <c:hangmanItemButton itemButton = "{!v.button}"/>
+        <!-- <c:hangmanItemButton itemButton = "{!v.button}"/> -->
+    </div>
+
+    <div class="c-button">
+        <!-- <c:hangmanItemButton itemButton = "{!v.button}"/> -->
+        <!-- <lightning:button variant="success" label="New Game" title="Destructive action" onclick="{!c.doInit }"/> -->
+        <lightning:button variant="destructive" label="New  Game" title="Destructive action" onclick="{!c.handleNewGame }"/>
+
+    </div>
+</aura:component>

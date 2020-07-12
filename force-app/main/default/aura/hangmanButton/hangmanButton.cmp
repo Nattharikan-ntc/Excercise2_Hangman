@@ -1,0 +1,9 @@
+<aura:component >
+    <aura:registerEvent name="selectChar" type="c:clickedChar"/>
+    <aura:attribute name="button" type="String"/>
+    <aura:attribute name="disabledButton" type="Boolean" default="false"/>
+
+    <lightning:button label="{!v.button}" title="Neutral action" onclick="{!c.handleClick }" disabled="{!v.disabledButton}"/>
+    <!-- <lightning:button label="{!v.button}" title="Neutral action" onclick="{!c.handleClick }"/> -->
+    <!-- <lightning:button label="{!v.button}" title="Neutral action" onclick="{! c.handleClick }" disabled="{!v.disabledButton}"/> -->
+</aura:component>
